@@ -39,3 +39,6 @@
 
 # debug information files
 *.dwo
+
+# Top secrets folders ;)
+secrets/

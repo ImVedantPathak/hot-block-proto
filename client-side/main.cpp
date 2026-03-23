@@ -53,14 +53,26 @@
     #define SOCK_ERR      -1
 #endif
 
+std::string loadServerIP(const std::string& path) {
+    std::ifstream file(path);
+    if (!file.is_open()) {
+        throw std::runtime_error("Could not open secrets file: " + path);
+    }
+    std::string ip;
+    std::getline(file, ip);
+    // Trim whitespace/newlines
+    ip.erase(ip.find_last_not_of(" \t\r\n") + 1);
+    return ip;
+}
+
 // ─── Configuration ────────────────────────────────────────────────────────────
-static const char*    SERVER_IP          = "72.60.221.128";
-static const uint16_t REGISTER_PORT      = 8000;       // Server's registration TCP port
-static const char*    SECRETS_DIR        = "../secrets";
-static const char*    SECRETS_FILE       = "../secrets/config.txt";
-static const char*    HEARTBEAT_BINARY   = "./heartbeat";
-static const char*    RECEIVER_BINARY    = "./receiver";
-static const int      CLIENT_ID_LENGTH   = 16;         // Random ID character length
+static const std::string SERVER_IP          = loadServerIP("../secrets/config.txt");
+static const uint16_t    REGISTER_PORT      = 8000;       // Server's registration TCP port
+static const char*       SECRETS_DIR        = "../secrets";
+static const char*       SECRETS_FILE       = "../secrets/config.txt";
+static const char*       HEARTBEAT_BINARY   = "./heartbeat";
+static const char*       RECEIVER_BINARY    = "./receiver";
+static const int         CLIENT_ID_LENGTH   = 16;         // Random ID character length
 // ─────────────────────────────────────────────────────────────────────────────
 
 struct ClientConfig {

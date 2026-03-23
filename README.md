@@ -3,6 +3,7 @@
 
 A lightweight, cross-platform C++ client for a home lab fleet management system. Each client machine runs three cooperating programs that register with a central VPS, send periodic heartbeats, and execute commands issued by the server.
 
+<img src="docs/fleet_manager/fleet_manager_architecture.svg" alt="fleet_manager_architecture" width="200"/>
 ---
 
 ## Table of Contents

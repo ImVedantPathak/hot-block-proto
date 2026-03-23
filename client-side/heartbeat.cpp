@@ -28,7 +28,7 @@
     #define SOCK_ERR -1
 #endif
 
-std::string loadSeverIP(const std::string& path) {
+std::string loadServerIP(const std::string& path) {
     std::ifstream file(path);
     if (!file.is_open()) {
         throw std::runtime_error("Could not open secrets file: " + path);
@@ -81,7 +81,7 @@ int main() {
 
     std::string serverIP;
     try{
-        serverIP = loadSeverIP("../secrets/config.txt");
+        serverIP = loadServerIP("../secrets/config.txt");
     } catch (const std::exception& e) {
         std::cerr << "[ERROR] " << e.what() << "\n";
         return 1;

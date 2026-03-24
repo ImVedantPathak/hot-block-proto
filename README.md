@@ -27,7 +27,6 @@ A lightweight, cross-platform C++ client for a fleet management system. Each cli
   - [Commands reference](#commands-reference)
   - [File transfer protocol](#file-transfer-protocol)
 - [Log Files](#log-files)
-- [Security Notes](#security-notes)
 
 ---
 

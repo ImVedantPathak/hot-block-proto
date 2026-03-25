@@ -8,7 +8,7 @@ def run_command(command: str, cwd: Optional[str | Path] = None) -> str:
         shell=True,
         cwd=str(cwd) if cwd is not None else None,
         capture_output=True,
-        tst=True
+        text=True
     )
     
     if result.returncode != 0:
@@ -21,7 +21,7 @@ def main():
     file = input("Enter file name (without extension): ")
     
     run_command(
-        command=f"g++ -std=c++17 packages/{side}/{file} {side}/{file}.cpp -pthread"
+        command=f"g++ -std=c++17 -o packages/{side}/{file} {side}/{file}.cpp -lws2_32 -pthread"
     )
     
 if __name__ == "__main__":

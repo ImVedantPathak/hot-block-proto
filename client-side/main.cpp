@@ -188,7 +188,7 @@ bool registerWithServer(ClientConfig& cfg) {
     sockaddr_in addr{};
     addr.sin_family = AF_INET;
     addr.sin_port   = htons(REGISTER_PORT);
-    if (inet_pton(AF_INET, SERVER_IP, &addr.sin_addr) <= 0) {
+    if (inet_pton(AF_INET, SERVER_IP.c_str(), &addr.sin_addr)) {
         log("ERROR", "Invalid server IP: " + std::string(SERVER_IP));
         CLOSE_SOCKET(sock);
         return false;

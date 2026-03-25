@@ -23,3 +23,6 @@ def main():
     run_command(
         command=f"g++ -std=c++17 packages/{side}/{file} {side}/{file}.cpp -pthread"
     )
+    
+if __name__ == "__main__":
+    main()

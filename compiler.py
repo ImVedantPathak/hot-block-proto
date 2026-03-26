@@ -21,7 +21,7 @@ def main():
     file = input("Enter file name (without extension): ")
     
     run_command(
-        command=f"g++ -std=c++17 -o packages/{side}/{file} {side}/{file}.cpp -lws2_32 -pthread"
+        command=f"g++ -std=c++17 -o packages/{side}/{file} {side}/{file}.cpp -pthread"
     )
     
 if __name__ == "__main__":
